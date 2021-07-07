@@ -387,20 +387,20 @@ class Detector():
                         dummy_input = torch.rand(1, 3, 512, 512)
                         if torch.cuda.is_available():
                             dummy_input = dummy_input.cuda()
-                        if isinstance(self.system_dict["local"]["model"], nn.DataParallel):
-                            self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=False)
+#                         if isinstance(self.system_dict["local"]["model"], nn.DataParallel):
+#                             self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=False)
 
-                            torch.onnx.export(self.system_dict["local"]["model"].module, dummy_input,
-                                              os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
-                                              verbose=False)
-                            self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=True)
-                        else:
-                            self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=False)
+#                             torch.onnx.export(self.system_dict["local"]["model"].module, dummy_input,
+#                                               os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
+#                                               verbose=False)
+#                             self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=True)
+#                         else:
+#                             self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=False)
 
-                            torch.onnx.export(self.system_dict["local"]["model"], dummy_input,
-                                              os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
-                                              verbose=False)
-                            self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=True)
+#                             torch.onnx.export(self.system_dict["local"]["model"], dummy_input,
+#                                               os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
+#                                               verbose=False)
+#                             self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=True)
 
                     # Early stopping
                     if epoch - self.system_dict["output"]["best_epoch"] > self.system_dict["params"]["es_patience"] > 0:
@@ -452,20 +452,20 @@ class Detector():
                 dummy_input = torch.rand(1, 3, 512, 512)
                 if torch.cuda.is_available():
                     dummy_input = dummy_input.to(self.system_dict["local"]["device"])
-                if isinstance(self.system_dict["local"]["model"], nn.DataParallel):
-                    self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=False)
+#                 if isinstance(self.system_dict["local"]["model"], nn.DataParallel):
+#                     self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=False)
 
-                    torch.onnx.export(self.system_dict["local"]["model"].module, dummy_input,
-                                      os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
-                                      verbose=False)
-                    self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=True)
-                else:
-                    self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=False)
+#                     torch.onnx.export(self.system_dict["local"]["model"].module, dummy_input,
+#                                       os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
+#                                       verbose=False)
+#                     self.system_dict["local"]["model"].module.backbone_net.model.set_swish(memory_efficient=True)
+#                 else:
+#                     self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=False)
 
-                    torch.onnx.export(self.system_dict["local"]["model"], dummy_input,
-                                      os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
-                                      verbose=False)
-                    self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=True)
+#                     torch.onnx.export(self.system_dict["local"]["model"], dummy_input,
+#                                       os.path.join(self.system_dict["output"]["saved_path"], "signatrix_efficientdet_coco.onnx"),
+#                                       verbose=False)
+#                     self.system_dict["local"]["model"].backbone_net.model.set_swish(memory_efficient=True)
 
 
         writer.close()
