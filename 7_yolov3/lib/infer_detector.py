@@ -442,7 +442,7 @@ class Infer():
                         x2 = float(xyxy[2].cpu());
                         y2 = float(xyxy[3].cpu());
                         score = float(conf.cpu());
-                        label = self.system_dict["params"]["coco_classes"][int(float(cls.cpu()))];
+                        label = self.system_dict["params"]["classes"][int(float(cls.cpu()))];
 
                         bboxes.append([x1, y1, x2, y2]);
                         labels.append(label);
