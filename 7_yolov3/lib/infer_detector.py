@@ -411,7 +411,7 @@ class Infer():
 
             # Apply NMS
             pred = non_max_suppression(pred, self.system_dict["params"]["conf_thres"], 
-                                       self.system_dict["params"]["conf_thres"], 
+                                       self.system_dict["params"]["iou_thres"], 
                                        classes=self.system_dict["params"]["classes"], 
                                        agnostic=self.system_dict["params"]["agnostic_nms"])
             
