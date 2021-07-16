@@ -122,7 +122,7 @@ class Infer():
         self.system_dict["params"]["weights"] = "weights/last.pt";
 
         self.system_dict["params"]["img_size"] = 416;
-        self.system_dict["params"]["conf_thres"] = 0.0;
+        self.system_dict["params"]["conf_thres"] = 0.05;
         self.system_dict["params"]["iou_thres"] = 0.5;
 
 
