@@ -123,7 +123,7 @@ class Infer():
 
         self.system_dict["params"]["img_size"] = 416;
         self.system_dict["params"]["conf_thres"] = 0.0;
-        self.system_dict["params"]["iou_thres"] = 0.0;
+        self.system_dict["params"]["iou_thres"] = 0.5;
 
 
     def Model(self, model_name, class_list, weight, use_gpu=True, input_size=416, half_precision=False):
