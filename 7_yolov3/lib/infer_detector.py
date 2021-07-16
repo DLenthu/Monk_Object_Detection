@@ -122,8 +122,8 @@ class Infer():
         self.system_dict["params"]["weights"] = "weights/last.pt";
 
         self.system_dict["params"]["img_size"] = 416;
-        self.system_dict["params"]["conf_thres"] = 0.3;
-        self.system_dict["params"]["iou_thres"] = 0.5;
+        self.system_dict["params"]["conf_thres"] = 0.0;
+        self.system_dict["params"]["iou_thres"] = 0.0;
 
 
     def Model(self, model_name, class_list, weight, use_gpu=True, input_size=416, half_precision=False):
@@ -288,7 +288,7 @@ class Infer():
 
             # Apply NMS
             pred = non_max_suppression(pred, self.system_dict["params"]["conf_thres"], 
-                                       self.system_dict["params"]["conf_thres"], 
+                                       self.system_dict["params"]["iou_thres"], 
                                        classes=self.system_dict["params"]["classes"], 
                                        agnostic=self.system_dict["params"]["agnostic_nms"])
             
