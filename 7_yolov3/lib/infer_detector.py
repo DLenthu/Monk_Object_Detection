@@ -380,7 +380,8 @@ class Infer():
             os.system("rm -r " + out);
             os.mkdir(out);
 
-        os.system("cp " + img_path + " " + source + "/");
+#         os.system("cp " + img_path + " " + source + "/");
+        source = img_path
 
         self.system_dict["local"]["dataset"] = LoadImages(source, 
                                                             img_size=self.system_dict["params"]["img_size"], 
